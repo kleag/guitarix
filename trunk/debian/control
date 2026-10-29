@@ -34,14 +34,15 @@ Rules-Requires-Root: no
 Package: guitarix-kleag
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, fonts-roboto
-Recommends: jackd2 | pipewire-jack, jack-capture, vorbis-tools, lame
+Recommends: pipewire-jack | jackd2, jack-capture, vorbis-tools, lame
 Conflicts: guitarix, guitarix-common, guitarix-lv2, guitarix-ladspa,
  libgxw0, libgxw0t64, libgxwmm0, libgxwmm0t64, libgxw-dev, libgxwmm-dev
 Replaces: guitarix, guitarix-common, guitarix-lv2, guitarix-ladspa,
  libgxw0, libgxw0t64, libgxwmm0, libgxwmm0t64, libgxw-dev, libgxwmm-dev
 Provides: guitarix, guitarix-common, guitarix-lv2
-Description: Rock guitar amplifier for JACK (kleag build)
- Guitarix is a virtual guitar amplifier for the JACK Audio Connection Kit,
+Description: Rock guitar amplifier for JACK and PipeWire (kleag build)
+ Guitarix is a virtual guitar amplifier for JACK or PipeWire (through
+ pipewire-jack),
  with a headless engine, a GTK user interface and LV2 plugins.
  .
  This package is built from the kleag/guitarix fork. It contains the
