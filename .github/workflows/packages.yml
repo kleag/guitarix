@@ -1,0 +1,87 @@
+name: Packages
+
+# Builds guitarix .debs for this desktop (Ubuntu 26.04, amd64) and the
+# Raspberry Pi (Pi OS bookworm, arm64), then publishes them as a signed apt
+# repository on GitHub Pages (gh-pages branch).
+
+on:
+  push:
+    tags: ['*']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - suite: resolute
+            image: ubuntu:26.04
+            runner: ubuntu-24.04
+          - suite: bookworm
+            image: debian:bookworm
+            runner: ubuntu-24.04-arm
+    runs-on: ${{ matrix.runner }}
+    container: ${{ matrix.image }}
+    steps:
+      # Without git in the container, actions/checkout downloads a tarball
+      # and skips the submodules.
+      - name: Install git
+        run: apt-get update && apt-get install -y --no-install-recommends git ca-certificates
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+      - name: Build package
+        run: sh .github/scripts/build-deb.sh ${{ matrix.suite }} ${{ github.run_number }} debs/${{ matrix.suite }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: debs-${{ matrix.suite }}
+          path: debs/
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: apt-repo
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: debs-*
+          path: debs
+          merge-multiple: true
+      - name: Import signing key
+        env:
+          APT_SIGNING_KEY: ${{ secrets.APT_SIGNING_KEY }}
+        run: |
+          test -n "$APT_SIGNING_KEY" || { echo "secret APT_SIGNING_KEY is not set"; exit 1; }
+          echo "$APT_SIGNING_KEY" | gpg --batch --import
+      - name: Build apt repository
+        run: |
+          sudo apt-get update && sudo apt-get install -y reprepro
+          sh .github/scripts/publish-apt.sh debs site "https://${GITHUB_REPOSITORY_OWNER}.github.io/${GITHUB_REPOSITORY#*/}"
+      # The repository is rebuilt from scratch on each run and only holds the
+      # latest build; tag builds also keep their .debs in a GitHub release.
+      - name: Push to gh-pages
+        run: |
+          cd site
+          git init -q -b gh-pages
+          git config user.name github-actions
+          git config user.email github-actions@users.noreply.github.com
+          git add -A
+          git commit -qm "apt repository for ${GITHUB_REF_NAME} (${GITHUB_SHA::8})"
+          git push -f "https://x-access-token:${{ github.token }}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
+      - name: Attach packages to the release
+        if: github.ref_type == 'tag'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" --verify-tag --prerelease \
+            --title "guitarix $GITHUB_REF_NAME" --notes "Packages built from $GITHUB_REF_NAME." \
+            debs/*/*.deb || gh release upload "$GITHUB_REF_NAME" --clobber debs/*/*.deb

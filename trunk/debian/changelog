@@ -1,1 +1,6 @@
-../changelog
+guitarix-kleag (0.47.0+kleag0) unstable; urgency=medium
+
+  * Packaging for the kleag/guitarix fork. CI replaces this entry with the
+    version of each build.
+
+ -- Gaël de Chalendar <kleagg@gmail.com>  Thu, 29 Oct 2026 12:00:00 +0100
