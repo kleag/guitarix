@@ -16,7 +16,7 @@ for dir in "$debdir"/*/; do
 Codename: $suite
 Suite: $suite
 Components: main
-Architectures: amd64 arm64
+Architectures: amd64 arm64 armhf
 Origin: kleag
 Label: guitarix (kleag)
 Description: guitarix packages built from github.com/kleag/guitarix
