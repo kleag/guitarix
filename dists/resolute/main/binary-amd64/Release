@@ -1,0 +1,6 @@
+Archive: resolute
+Component: main
+Origin: kleag
+Label: guitarix (kleag)
+Architecture: amd64
+Description: guitarix packages built from github.com/kleag/guitarix

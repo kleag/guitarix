@@ -1,0 +1,27 @@
+Package: guitarix-kleag
+Version: 0.47.0+kleag5.ga2a5a968~bookworm
+Architecture: arm64
+Maintainer: Gaël de Chalendar <kleagg@gmail.com>
+Installed-Size: 61664
+Depends: libatkmm-1.6-1v5 (>= 2.28.3), libavahi-common3 (>= 0.6.16), libavahi-gobject0 (>= 0.6.22), libbluetooth3 (>= 4.91), libboost-iostreams1.74.0 (>= 1.74.0+ds1), libc6 (>= 2.34), libcairo2 (>= 1.10.0), libcairomm-1.0-1v5 (>= 1.14.4), libcurl3-gnutls (>= 7.16.2), libfftw3-single3 (>= 3.3.10), libgcc-s1 (>= 3.0), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.41.1), libglibmm-2.4-1v5 (>= 2.66.5), libgtk-3-0 (>= 3.21.5), libgtkmm-3.0-1v5 (>= 3.24.7), libjack-jackd2-0 (>= 1.9.10+20150825) | libjack-0.125, liblilv-0-0 (>= 0.14.2~dfsg0), liblrdf0 (>= 0.4.0-1.2), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libpangomm-1.4-1v5 (>= 2.46.3), libsigc++-2.0-0v5 (>= 2.8.0), libsndfile1 (>= 1.0.20), libstdc++6 (>= 12), libx11-6, fonts-roboto
+Recommends: pipewire-jack | jackd2, jack-capture, vorbis-tools, lame
+Conflicts: guitarix, guitarix-common, guitarix-ladspa, guitarix-lv2, libgxw-dev, libgxw0, libgxw0t64, libgxwmm-dev, libgxwmm0, libgxwmm0t64
+Replaces: guitarix, guitarix-common, guitarix-ladspa, guitarix-lv2, libgxw-dev, libgxw0, libgxw0t64, libgxwmm-dev, libgxwmm0, libgxwmm0t64
+Provides: guitarix, guitarix-common, guitarix-lv2
+Homepage: https://guitarix.org/
+Priority: optional
+Section: sound
+Filename: pool/main/g/guitarix-kleag/guitarix-kleag_0.47.0+kleag5.ga2a5a968~bookworm_arm64.deb
+Size: 32862780
+SHA256: 8f437163d66d5e083957fbf86071fefcdcd45f3567e6c1c689d316a0e39b0360
+SHA1: 0090193addc0bef988395d1ddcf99bf5f1c74fda
+MD5sum: ff53bf3ad1a76505e6a7ac25a629cde6
+Description: Rock guitar amplifier for JACK and PipeWire (kleag build)
+ Guitarix is a virtual guitar amplifier for JACK or PipeWire (through
+ pipewire-jack),
+ with a headless engine, a GTK user interface and LV2 plugins.
+ .
+ This package is built from the kleag/guitarix fork. It contains the
+ application, its data and the LV2 plugins, and replaces the split
+ distribution packages.
+

@@ -1,0 +1,48 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Origin: kleag
+Label: guitarix (kleag)
+Suite: resolute
+Codename: resolute
+Date: Fri, 30 Oct 2026 12:36:09 UTC
+Architectures: amd64 arm64 armhf
+Components: main
+Description: guitarix packages built from github.com/kleag/guitarix
+MD5Sum:
+ cd38c9d2ad2d807e70b8418d62c95f49 2052 main/binary-amd64/Packages
+ 9fa77eb3e6d2525ad24bf0200e56f04b 1011 main/binary-amd64/Packages.gz
+ f251311967f98064fd60e799d64dd668 160 main/binary-amd64/Release
+ d41d8cd98f00b204e9800998ecf8427e 0 main/binary-arm64/Packages
+ 7029066c27ac6f5ef18d660d5741979a 20 main/binary-arm64/Packages.gz
+ eefacd79aaf0ee48b4555c6932c7bcd1 160 main/binary-arm64/Release
+ d41d8cd98f00b204e9800998ecf8427e 0 main/binary-armhf/Packages
+ 7029066c27ac6f5ef18d660d5741979a 20 main/binary-armhf/Packages.gz
+ ef8d64934fc0b68e1c44fb0a09c7c43a 160 main/binary-armhf/Release
+SHA1:
+ 23f98136aaca138919e81b24ca2630aded439033 2052 main/binary-amd64/Packages
+ 25a7a28373ba8aedc9929d9b63e2d321524e0b2f 1011 main/binary-amd64/Packages.gz
+ fd8d7d00d08aaa3da163be40b46f71d487ab2b17 160 main/binary-amd64/Release
+ da39a3ee5e6b4b0d3255bfef95601890afd80709 0 main/binary-arm64/Packages
+ 46c6643f07aa7f6bfe7118de926b86defc5087c4 20 main/binary-arm64/Packages.gz
+ 7f2b9f0a83ef8724128c7ec355dab123baf2229a 160 main/binary-arm64/Release
+ da39a3ee5e6b4b0d3255bfef95601890afd80709 0 main/binary-armhf/Packages
+ 46c6643f07aa7f6bfe7118de926b86defc5087c4 20 main/binary-armhf/Packages.gz
+ 5b30f54a59fc11fb68a07142d6a935a1fb21a990 160 main/binary-armhf/Release
+SHA256:
+ 0b1318eb17cb25da2c703e26c839db24e1442465a3681ed3503a34537a08c06f 2052 main/binary-amd64/Packages
+ dd4c8d476b31a09e949bb512097ff07731e3648dcf24857af87b5f5c9ce3bd25 1011 main/binary-amd64/Packages.gz
+ 519b5ec02540b969c9da1fb38a72db1b64ced8e12306cb6f968be5cf6cadb02f 160 main/binary-amd64/Release
+ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 main/binary-arm64/Packages
+ 59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 main/binary-arm64/Packages.gz
+ d7e7cbc59caa0203dfd50c65b4507c6496e61fd247b4ae8f22268cbf5287cbf6 160 main/binary-arm64/Release
+ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 main/binary-armhf/Packages
+ 59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 main/binary-armhf/Packages.gz
+ 445901c4fd98cea551fe034964ed30cd45e2d4ae1f4403837defd91e3f9a93d8 160 main/binary-armhf/Release
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQRHDUn/PujhOo3NBf09A87tgyJDpAUCauSPOQAKCRA9A87tgyJD
+pNIQAQCUEG8bg2dWNj3RZsGE4doKDQl4R/n88IpQhHLXpnbfrgEA8hxLuS7nCRWg
+roiFYX+MMhwSY9aZdKAdOGqv2vqwHQs=
+=m1+9
+-----END PGP SIGNATURE-----
